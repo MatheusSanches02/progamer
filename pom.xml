@@ -21,13 +21,15 @@
 			<artifactId>javax.faces-api</artifactId>
 			<scope>provided</scope>
 		</dependency>
+
 		<!-- CDI -->
 		<dependency>
 			<groupId>javax.enterprise</groupId>
 			<artifactId>cdi-api</artifactId>
 			<scope>provided</scope>
 		</dependency>
-		<!-- PrimeFaces -->
+
+		<!-- Primefaces -->
 		<dependency>
 			<groupId>org.primefaces</groupId>
 			<artifactId>primefaces</artifactId>
@@ -38,6 +40,7 @@
       <artifactId>hibernate-jpa-2.0-api</artifactId>
       <scope>provided</scope>
     </dependency>
+
 	</dependencies>
 	<dependencyManagement>
 		<dependencies>

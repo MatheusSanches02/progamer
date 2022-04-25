@@ -5,37 +5,41 @@
 	xmlns:h="http://java.sun.com/jsf/html"
 	xmlns:p="http://primefaces.org/ui">
 
-<ui:composition template="/_template.xhtml">
+<ui:composition template="/_user_template.xhtml">
 	<ui:define name="content">
 		
 		<!-- FORM -->
 		<h:form>
 			<p:card style="width: 25em; margin: 1em auto">
 				<f:facet name="title">
-	        New Setup
+	        New User
 	    </f:facet>
 
 				<div class="ui-fluid">
 					<div class="p-field">
 						<label for="name">Name</label>
-						<p:inputText id="name" type="text" value="#{setupBean.setup.name}" />
+						<p:inputText id="userName" type="text" value="#{userBean.user.name}" />
 					</div>
 					<div class="p-field">
-						<label for="description">Description</label>
-						<p:inputTextarea id="description" type="text"
-							value="#{setupBean.setup.description}" />
+						<label for="birthDate">Birth Date</label>
+						<p:inputText id="birthDate" type="text"
+							value="#{userBean.user.birthDate}" />
 					</div>
 					<div class="p-field">
-						<label for="price">Price</label>
-						<p:inputNumber id="price" value="#{setupBean.setup.price}"
-							symbol="R$ " decimalSeparator="," thousandSeparator="." />
+						<label for="email">E-mail</label>
+						<p:inputText id="name" type="email" value="#{userBean.user.email}" />
+					</div>
+					<div class="p-field">
+						<label for="password">Password</label>
+						<p:password id="toggle" value="#{userBean.user.password}" 
+						toggleMask="true" 
+						redisplay="true"/>
 					</div>
 				</div>
 
-
 				<f:facet name="footer">
 					<p:commandButton icon="pi pi-check" value="Save"
-						action="#{setupBean.save()}" />
+						action="#{userBean.save()}" />
 					<p:commandButton icon="pi pi-times" value="Cancel"
 						styleClass="ui-button-secondary" style="margin-left: .5em" />
 				</f:facet>
