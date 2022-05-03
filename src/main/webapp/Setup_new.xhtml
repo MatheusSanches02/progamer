@@ -18,17 +18,45 @@
 				<div class="ui-fluid">
 					<div class="p-field">
 						<label for="name">Name</label>
-						<p:inputText id="name" type="text" value="#{setupBean.setup.name}" />
+						<p:inputText 
+						id="name" 
+						type="text" 
+						value="#{setupBean.setup.name}" 
+						required="true"
+						requiredMessage="O campo nome é obrigatório"
+						>
+							<f:ajax event="blur" render="msg"/>
+						</p:inputText>
 					</div>
 					<div class="p-field">
 						<label for="description">Description</label>
-						<p:inputTextarea id="description" type="text"
-							value="#{setupBean.setup.description}" />
+						<p:inputTextarea 
+						id="description" 
+						type="text"
+						value="#{setupBean.setup.description}" 
+						required="true"
+						requiredMessage="A descrição é obrigatória"
+						validatorMessage="A descrição deve ter pelo menos 10 caracteres"	
+						>
+							<f:validateLength minimum="10" maximum="255" />
+							<f:ajax event="blur" render="msg"/>
+						</p:inputTextarea>
 					</div>
 					<div class="p-field">
 						<label for="price">Price</label>
-						<p:inputNumber id="price" value="#{setupBean.setup.price}"
-							symbol="R$ " decimalSeparator="," thousandSeparator="." />
+						<p:inputNumber 
+						id="price" 
+						value="#{setupBean.setup.price}"
+						symbol="R$ " 
+						decimalSeparator="," 
+						thousandSeparator="." 
+						required="true"
+						requiredMessage="O preço é obrigatório"
+						validatorMessage="O preço não pode ser negativo"
+						>
+							<f:validateDoubleRange minimum="0"/>
+							<f:ajax event="blur" render="msg"/>
+						</p:inputNumber>
 					</div>
 				</div>
 
