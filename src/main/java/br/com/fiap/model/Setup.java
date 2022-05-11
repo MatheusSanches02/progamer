@@ -15,6 +15,7 @@ public class Setup {
 	private String name = "Meu setup";
 	private String description = "Teste de descrição";
 	private BigDecimal price = new BigDecimal(200);
+	private String imagePath;
 	
 	public Long getId() {
 		return id;
@@ -48,6 +49,14 @@ public class Setup {
 	@Override
 	public String toString() {
 		return "Setup [name=" + name + ", description=" + description + ", price=" + price + "]";
+	}
+
+	public String getImagePath() {
+		return imagePath;
+	}
+
+	public void setImagePath(String imagePath) {
+		this.imagePath = imagePath;
 	}
 	
 }

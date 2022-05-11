@@ -3,34 +3,37 @@
 	xmlns:ui="http://java.sun.com/jsf/facelets"
 	xmlns:f="http://java.sun.com/jsf/core"
 	xmlns:h="http://java.sun.com/jsf/html"
-	xmlns:p="http://primefaces.org/ui"	
->
+	xmlns:p="http://primefaces.org/ui">
 
-	<ui:composition template="/_template.xhtml">
-		<ui:define name="content">
-			<h:form>
-		<div class="card" style="margin:1em">
-			<p:dataTable var="setup" value="#{setupBean.all}">
-				<p:column headerText="id">
-					<h:outputText value="#{setup.id}" />
-				</p:column>
+<ui:composition template="/_template.xhtml">
+	<ui:define name="content">
+		<h:form>
+			<div class="card" style="margin: 1em">
+				<p:dataTable var="setup" value="#{setupBean.all}">
+					<p:column headerText="image">
+						<img src="#{request.contextPath}#{setup.imagePath}"
+							style="width: 150px" />
+					</p:column>
+					<p:column headerText="id">
+						<h:outputText value="#{setup.id}" />
+					</p:column>
 
-				<p:column headerText="Name">
-					<h:outputText value="#{setup.name}" />
-				</p:column>
+					<p:column headerText="Name">
+						<h:outputText value="#{setup.name}" />
+					</p:column>
 
-				<p:column headerText="Description">
-					<h:outputText value="#{setup.description}" />
-				</p:column>
+					<p:column headerText="Description">
+						<h:outputText value="#{setup.description}" />
+					</p:column>
 
-				<p:column headerText="Price">
-					<h:outputText value="#{setup.price}" />
-				</p:column>
-			</p:dataTable>
-		</div>
-	</h:form>
-					
-		</ui:define>
-	</ui:composition>
+					<p:column headerText="Price">
+						<h:outputText value="#{setup.price}" />
+					</p:column>
+				</p:dataTable>
+			</div>
+		</h:form>
+
+	</ui:define>
+</ui:composition>
 
 </html>

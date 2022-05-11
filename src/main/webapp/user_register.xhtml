@@ -7,9 +7,13 @@
 
 <ui:composition template="/_user_template.xhtml">
 	<ui:define name="content">
+	
+		<p:messages id="msg"> 
+			<p:autoUpdate /> 
+		</p:messages>
 		
 		<!-- FORM -->
-		<h:form>
+		<h:form enctype="multipart/form-data">
 			<p:card style="width: 25em; margin: 1em auto">
 				<f:facet name="title">
 	        New User
@@ -18,7 +22,14 @@
 				<div class="ui-fluid">
 					<div class="p-field">
 						<label for="name">Name</label>
-						<p:inputText id="userName" type="text" value="#{userBean.user.name}" />
+						<p:inputText id="userName" 
+						type="text" 
+						value="#{userBean.user.name}" 
+						required="true"
+						requiredMessage="O nome e obrigatorio"
+						>
+						<f:ajax event="blur" render="msg"/>
+						</p:inputText>
 					</div>
 					<div class="p-field">
 						<label for="birthDate">Birth Date</label>
@@ -27,13 +38,27 @@
 					</div>
 					<div class="p-field">
 						<label for="email">E-mail</label>
-						<p:inputText id="name" type="email" value="#{userBean.user.email}" />
+						<p:inputText id="name" 
+						type="email" 
+						value="#{userBean.user.email}" 
+						required="true"
+						requiredMessage="O email e obrigatorio"
+						>
+						<f:ajax event="blur" render="msg"/>
+						</p:inputText>
 					</div>
 					<div class="p-field">
 						<label for="password">Password</label>
-						<p:password id="toggle" value="#{userBean.user.password}" 
+						<p:password id="toggle" 
+						value="#{userBean.user.password}" 
 						toggleMask="true" 
-						redisplay="true"/>
+						redisplay="true"
+						required="true"
+						requiredMessage="A senha e obrigatoria"
+						feedback="true"
+						>
+						<f:ajax event="blur" render="msg" />
+						</p:password>
 					</div>
 				</div>
 
