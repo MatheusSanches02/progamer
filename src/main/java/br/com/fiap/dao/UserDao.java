@@ -2,33 +2,30 @@ package br.com.fiap.dao;
 
 import java.util.List;
 
+import javax.inject.Inject;
 import javax.persistence.EntityManager;
-import javax.persistence.EntityManagerFactory;
-import javax.persistence.Persistence;
 import javax.persistence.TypedQuery;
 
 import br.com.fiap.model.User;
 
 public class UserDao {
 
-	EntityManagerFactory factory = 
-			Persistence.createEntityManagerFactory("progamer-persistence-unit");
-	EntityManager manager = 
-			factory.createEntityManager();
+	@Inject
+	EntityManager em;
 
 	public void create(User user) {
 		
-		manager.getTransaction().begin();
-		manager.persist(user);
-		manager.getTransaction().commit();
+		em.getTransaction().begin();
+		em.persist(user);
+		em.getTransaction().commit();
 		
-		manager.clear();
+		em.clear();
 	}
 	
 	public List<User> listAll() {
 		
 		TypedQuery<User> query = 
-				manager.createQuery("SELECT u FROM User u", User.class);
+				em.createQuery("SELECT u FROM User u", User.class);
 		
 		return query.getResultList();
 		
@@ -36,7 +33,7 @@ public class UserDao {
 	
 	public boolean exist(User user) {
 		String jpql = "SELECT u FROM User u WHERE email=:email AND password=:password";
-		TypedQuery<User> query = manager.createQuery(jpql, User.class);
+		TypedQuery<User> query = em.createQuery(jpql, User.class);
 		query.setParameter("email", user.getEmail());
 		query.setParameter("password", user.getPassword());
 		

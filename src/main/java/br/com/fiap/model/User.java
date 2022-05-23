@@ -14,6 +14,7 @@ public class User {
 	private String birthDate= "16/09/2002";
 	private String email = "email@email.com";
 	private String password = "1234";
+	private String imagePath;
 	
 	public Long getId() {
 		return id;
@@ -50,6 +51,12 @@ public class User {
 	public String toString() {
 		return "User [id=" + id + ", name=" + name + ", birthDate=" + birthDate + ", email=" + email + ", password="
 				+ password + "]";
+	}
+	public String getImagePath() {
+		return imagePath;
+	}
+	public void setImagePath(String imagePath) {
+		this.imagePath = imagePath;
 	}
 	
 }
