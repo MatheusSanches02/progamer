@@ -4,15 +4,22 @@ import java.util.List;
 
 import javax.inject.Inject;
 import javax.persistence.EntityManager;
+import javax.persistence.EntityManagerFactory;
+import javax.persistence.Persistence;
 import javax.persistence.TypedQuery;
 
 import br.com.fiap.model.User;
 
 public class UserDao {
 
-	@Inject
-	EntityManager em;
+	//@Inject
+	//EntityManager em;
 
+	EntityManagerFactory factory = 
+			Persistence.createEntityManagerFactory("progamer-persistence-unit");
+	EntityManager em = 
+			factory.createEntityManager();
+	
 	public void create(User user) {
 		
 		em.getTransaction().begin();

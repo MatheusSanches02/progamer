@@ -60,6 +60,15 @@
 						<f:ajax event="blur" render="msg" />
 						</p:password>
 					</div>
+					<div class="p-field">
+						<label for="image">Image File: </label>
+						<p:fileUpload
+							id="image"
+							mode="simple"
+							skinSimple="true"
+							value="#{userBean.image}"
+						/>
+					</div>
 				</div>
 
 				<f:facet name="footer">

@@ -23,9 +23,9 @@ public class UserBean {
 	private User user = new User();
 	private UploadedFile image;
 	
+	@Inject
 	private UserDao dao;
 
-	@Inject
 	public String save() throws IOException {
 		System.out.println(this.user);
 		
